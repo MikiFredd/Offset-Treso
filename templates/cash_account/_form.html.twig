@@ -1,4 +1,138 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# FORMULAIRE D'ENREGISTREMENT D'UN COMPTE CAISSE #}
+
+
+<div class="row">
+	<div class="col-12">
+		<div class="row">
+			<fieldset class="form-fieldset">
+				<legend>Informations sur le compte</legend>
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="row">
+							<div class="col-md-12 col-xl-12">
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Nom:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.nom) }}
+									</div>
+								</div>
+
+                                <div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Journal:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.code_journal) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Numéro de compte:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.num_cpte) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required" title="inscrire la forme de votre entreprise (Entreprise individuel, Sarl, SA, autres)">
+										Solde à l'ouverture:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.solde_ouv) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Plafond:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.plafond) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required" title="Prénom du gérant où de la gérante">
+										Solde Plancher:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.solde_plancher) }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset class="form-fieldset">
+				<legend>Informations sur le gestionnaire</legend>
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="row">
+							<div class="col-md-12 col-xl-12">
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Caissier:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.caissier) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Contact:
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.contact) }}
+									</div>
+								</div>
+
+								<div class="form-group row mb-3 mt-3">
+									<label class="col-md-3 col-form-label required">
+										Responsable hiérarchique :
+									</label>
+									<div class="col-md-7">
+										{{ form_widget(form.responsable) }}
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+
+<div class="divide-x"></div>
+<!-- Pied de page de notre formulaire -->
+<div class="card-footer mt-2">
+	<button class="btn btn-blue float-end ms-2">
+		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
+			 height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none"
+			 stroke-linecap="round" stroke-linejoin="round">
+			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+			<path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+			<path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+		</svg>
+		<span>{{ button_label|default('Ajouter') }}</span>
+	</button>
+	<a href="{{ path('app_cash_account_index') }}" class="btn btn-azure  float-end">
+		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back"
+			 width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+			 fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+			<path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+		</svg>
+		<span>Retour</span>
+	</a>
+</div>
+
