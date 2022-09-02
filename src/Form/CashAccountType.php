@@ -23,11 +23,11 @@ class CashAccountType extends AbstractType
                     'required' => true, 
                 ]
             ])
-            ->add('code_journal', TextType::class, [
-                'attr' => [
-                    'required' => true,
-                ]
-            ])
+            //->add('code_journal', TextType::class, [
+            //    'attr' => [
+            //        'required' => false,
+            //    ]
+            //])
             ->add('solde_ouv', TextType::class, [
                 'attr' => [
                     'required' => true, 
