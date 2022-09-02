@@ -1,0 +1,127 @@
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Log in! - Tréso</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+
+
+
+{% block body %}
+<body  class=" border-top-wide border-primary d-flex flex-column">
+  {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+{% if app.user %}
+    <div class="mb-3">
+        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
+{% endif %}
+
+  <div class="page page-center">
+      <div class="container-tight py-4">
+        <div class="text-center mb-4">
+          <a href="." class="navbar-brand"><img src="{{ asset('images/icons/logo.png') }}" height="45" alt=""></a>
+        </div>
+  <form method="post" class="card card-md" autocomplete="off">
+
+    <div class="card-body">
+      <h1 class="card-title text-center mb-4 font-weight-normal">Authentification <hr></h1>
+      <div class="mb-3">
+    
+        <div class="mb-3">
+          <label for="inputUsername">Username</label>
+          <div class="input-group input-group-flat">
+            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Saisissez mot nom d'utilisateur" required autofocus>
+          </div>
+        </div>
+        <br><br>
+        <div class="mb-2">
+          <label for="inputPassword">Password</label>
+              <div class="input-group input-group-flat">
+                <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control" required>
+                </div>
+            </div>
+          <br><br>
+    
+
+    <input type="hidden" name="_csrf_token"
+      value="{{ csrf_token('authenticate') }}"
+    >
+
+    
+
+    <div class="form-footer">
+              <button class="btn btn-lg btn-primary w-100" type="submit">
+                  Sign in
+              </button>
+    </div>
+    </div>
+</form>
+</body>
+
+
+{#<body  class=" border-top-wide border-primary d-flex flex-column">
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="page page-center">
+      <div class="container-tight py-4">
+        <div class="text-center mb-4">
+          <a href="." class="navbar-brand"><img src="{{ asset('images/icons/logo.png') }}" height="45" alt=""></a>
+        </div>
+        <form class="card card-md" action="." method="post" autocomplete="off">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Authentification <hr> </h2>
+            <div class="mb-3">
+              <label class="form-label" for="inputUsername">Nom d'utilisateur</label>
+              <input type="username" name="username" id="inputUsername" class="form-control" placeholder="Saissisez mot nom d'utilisateur" autocomplete="off" required autofocus>
+            </div>
+            <div class="mb-2">
+              <label class="form-label" for="inputPassword">
+                Mot de passe
+              </label>
+              <div class="input-group input-group-flat">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe"  autocomplete="off" required>
+                <span class="input-group-text">
+                  <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                  </a>
+                </span>
+              </div>
+               
+            </div>
+
+
+            <br><br><br>
+
+            <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}">
+            <div class="form-footer">
+              <button class="btn btn-lg btn-primary w-100 m-lg-3" type="submit">
+                  Sign in
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center text-muted mt-3">
+          Don't have account yet? <a href="./sign-up.html" tabindex="-1">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </body>#}
+{% endblock %}
+
+</html>

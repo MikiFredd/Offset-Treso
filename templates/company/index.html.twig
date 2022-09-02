@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Company index
+    
+{% endblock %}
+{% block body %}
+    <div class="row row-cards">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        Informations sur la société                    
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-vcenter card-table" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Nom
+                                                                            
+                                    </th>
+                                    <th>
+                                        Forme
+                                                                            
+                                    </th>
+                                    <th>
+                                        Activité
+                                                                            
+                                    </th>
+                                    <th>
+                                        N° Registre de Commerce et C
+                                                                            
+                                    </th>
+                                    <th>
+                                        N° Compte Contribuable
+                                                                            
+                                    </th>
+                                    <th>
+                                        N° Telephone
+                                                                            
+                                    </th>
+                                    <th>
+                                        Adresse
+                                                                            
+                                    </th>
+                                    <th>
+                                        Siege social
+                                                                            
+                                    </th>
+                                    <th>
+                                        Capital social
+                                                                            
+                                    </th>
+                                    <th>
+                                        Gerant
+                                                                            
+                                    </th>
+                                    <th>
+                                        Année de Debut d'Activité
+                                                                            
+                                    </th>
+                                    <th>
+                                        Actions
+                                                                            
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for company in companies %}
+                                    <tr>
+                                        <td>
+                                            {{ company.CompanyName }}
+                                        </td>
+                                        <td>
+                                            {{ company.Forme }}
+                                        </td>
+                                        <td>
+                                            {{ company.Activities }}
+                                        </td>
+                                        <td>
+                                            {{ company.NumeroRCC }}
+                                        </td>
+                                        <td>
+                                            {{ company.NumeroCC }}
+                                        </td>
+                                        <td>
+                                            {{ company.Telephone }}
+                                        </td>
+                                        <td>
+                                            {{ company.Adresse }}
+                                        </td>
+                                        <td>
+                                            {{ company.SiegeSocial }}
+                                        </td>
+                                        <td>
+                                            {{ company.CapitalSocial }}
+                                        </td>
+                                        <td>
+                                            {{ company.Gerant }}
+                                        </td>
+                                        <td>
+                                            {{ company.AnneeDebutActiv ? company.AnneeDebutActiv|date('Y-m-d') : '' }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('app_company_show', {'id': company.id}) }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="15">
+                                            <div class="container-xl d-flex flex-column justify-content-center">
+                                                <div class="empty">
+                                                    <div class="empty-img">
+                                                        <img src="{{ asset('images/illustrations/undraw_printing_invoices_5r4r.svg') }}" height="128" alt="">
+                                                    </div>
+                                                        <p class="empty-title">
+                                                            Aucun élément disponible
+                                                                                                            
+                                                        </p>
+                                                        <p class="empty-subtitle text-muted">
+                                                            Tableau vide. Essayez d'ajouter un nouvel élément.
+                                                                                                            
+                                                        </p>
+                                                </div>
+                                            </div>
+                                            </td>
+                                            </tr>    
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                {% if((companies | length) == 0 ) %}
+                    <div class="card-footer">
+                        <div class="mr-auto" style="float: right;">
+                            <a class="btn btn-ghost-primary active" href="{{ path('app_company_new') }}">
+                                Nouveau                        
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier - Company{% endblock %}
+
+{% block body %}
+
+    <div class="row row-cards mb-3 mt-3">
+        <div class="col-12">
+            <div class="card   bg-light border rounded-3">
+                <!-- Entête de notre formulaire -->
+                <div class="card-header mb-3 bg-facebook"  style="border-bottom: 3px solid yellow;">
+                    <h3 class="page-title text-break" style="color: white">Fiche de modification société</h3>
+                </div>
+                <!-- Corps de notre formulaire -->
+                <div class="card-body">
+                    {{ form_start(form, {'attr': {'class':'row g-3 needs-validation' }}
+                    ) }}
+                    {{ include('company/_edit_form.html.twig') }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+@import 'bootstrap.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import './css/demo.min.css';
+@import './css/tabler.min.css';
+@import './css/tabler-vendors.min.css';
+
+
+
+.avatar{
+    color: #fbf46a;
+}
+
+.col-center{
+    margin: 0 auto;
+    float: none;
+}
+
+.custom {
+    border-bottom: 3px solid #fbf46a;
+    color: inherit;
+    background-color: darkblue;
+}
+
+legend{
+    border-bottom: 1px solid #b8cadf;
+}

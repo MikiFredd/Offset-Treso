@@ -1,0 +1,112 @@
+
+{{form_start(form)}}
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-12">
+                <fieldset class="card">
+                    <div class="card-header">
+                        <legend><h3 class="card-title">Creation d'une Société</h3></legend>
+                        <hr>
+                    </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-12">
+                                            <div class="mb-3">
+                                                <label for="input01" class="form-label required">Nom De Sociétés</label>
+                                                {{ form_widget(form.CompanyName) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input02" class="form-label required"> Forme (Entreprise individuelle, Sarl, SA, autres)</label>
+                                                {{ form_widget(form.Forme) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input03" class="form-label required"> Activités</label>
+                                                {{ form_widget(form.Activities) }}
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="input04" class="form-label required">N° Registre de Commerce et C (nrcc)</label>
+                                                {{ form_widget(form.Numero_RCC) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="row">
+                                            <div class="col-md-6 col-xl-12">
+                                                <div class="mb-3">
+                                                    <label for="input05" class="form-label required">N° Compte Contribuable (ncc)</label>
+                                                    {{ form_widget(form.Numero_CC) }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="input06" class="form-label required"> telephone</label>
+                                                    {{ form_widget(form.Telephone) }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="input07" class="form-label required"> Adresse</label>
+                                                    {{ form_widget(form.Adresse) }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="input08" class="form-label required"> Siège social</label>
+                                                    {{ form_widget(form.Siege_social) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xl-12">
+                                            <div class="m-3">
+                                                <label for="input05" class="form-label required">Capital social</label>
+                                                {{ form_widget(form.Capital_social) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xl-12">
+                                            <div class="m-3">
+                                                <label for="input05" class="form-label required">Gérant</label>
+                                                {{ form_widget(form.Gerant) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xl-12">
+                                            <div class="m-3">
+                                                <label for="input05" class="form-label required">Année de début d’activité </label>
+                                                {{ form_widget(form.Annee_debut_activ) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                                    <button class="btn btn-primary w-100 m-lg-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-apple-podcast" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M18.364 18.364a9 9 0 1 0 -12.728 0"></path>
+                                            <path d="M11.766 22h.468a2 2 0 0 0 1.985 -1.752l.5 -4a2 2 0 0 0 -1.985 -2.248h-1.468a2 2 0 0 0 -1.985 2.248l.5 4a2 2 0 0 0 1.985 1.752z"></path>
+                                            <circle cx="12" cy="9" r="2"></circle>
+                                        </svg>{{ button_label|default('Enregistrer')}}
+                                <a href="{{ path('app_company_index') }}" class="btn btn-ghost-primary active">Retour Sur Liste</a>
+
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+{{ form_end(form) }}
