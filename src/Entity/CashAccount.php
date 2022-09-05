@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CashAccountRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\TimestampableTrait;
 
@@ -44,6 +46,14 @@ class CashAccount
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Journal $code_journal = null;
+
+    #[ORM\OneToMany(mappedBy: 'caisse', targetEntity: FundsRequest::class)]
+    private Collection $fundsRequests;
+
+    public function __construct()
+    {
+        $this->fundsRequests = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +164,36 @@ class CashAccount
     public function setCodeJournal(?Journal $code_journal): self
     {
         $this->code_journal = $code_journal;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FundsRequest>
+     */
+    public function getFundsRequests(): Collection
+    {
+        return $this->fundsRequests;
+    }
+
+    public function addFundsRequest(FundsRequest $fundsRequest): self
+    {
+        if (!$this->fundsRequests->contains($fundsRequest)) {
+            $this->fundsRequests->add($fundsRequest);
+            $fundsRequest->setCaisse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFundsRequest(FundsRequest $fundsRequest): self
+    {
+        if ($this->fundsRequests->removeElement($fundsRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($fundsRequest->getCaisse() === $this) {
+                $fundsRequest->setCaisse(null);
+            }
+        }
 
         return $this;
     }
