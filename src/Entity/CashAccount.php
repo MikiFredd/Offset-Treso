@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\CashAccountRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\FundsRequest;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\TimestampableTrait;
+use App\Repository\CashAccountRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: CashAccountRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -44,11 +45,11 @@ class CashAccount
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $responsable = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Journal $code_journal = null;
-
     #[ORM\OneToMany(mappedBy: 'caisse', targetEntity: FundsRequest::class)]
     private Collection $fundsRequests;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Journal $codeJournal = null;
 
     public function __construct()
     {
@@ -156,17 +157,6 @@ class CashAccount
         return $this;
     }
 
-    public function getCodeJournal(): ?Journal
-    {
-        return $this->code_journal;
-    }
-
-    public function setCodeJournal(?Journal $code_journal): self
-    {
-        $this->code_journal = $code_journal;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, FundsRequest>
@@ -194,6 +184,18 @@ class CashAccount
                 $fundsRequest->setCaisse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCodeJournal(): ?Journal
+    {
+        return $this->codeJournal;
+    }
+
+    public function setCodeJournal(?Journal $codeJournal): self
+    {
+        $this->codeJournal = $codeJournal;
 
         return $this;
     }

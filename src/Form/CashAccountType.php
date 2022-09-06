@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Journal;
 use App\Entity\CashAccount;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -23,11 +25,10 @@ class CashAccountType extends AbstractType
                     'required' => true, 
                 ]
             ])
-            //->add('code_journal', TextType::class, [
-            //    'attr' => [
-            //        'required' => false,
-            //    ]
-            //])
+            ->add('codeJournal', EntityType::class, [
+                'class' => Journal::class,
+                'placeholder' => 'Choisissez le code journal'
+            ])
             ->add('solde_ouv', TextType::class, [
                 'attr' => [
                     'required' => true, 

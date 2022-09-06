@@ -23,55 +23,34 @@
                             <thead>
                                 <tr>
                                     {#<th>
-                                                                                                                                                    Id
-                                                                                                                                                </th>#}
+                                        Id
+                                    </th>#}
+                                    <th>
+                                        Code journal
+                                    </th>
                                     <th>
                                         Nom
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Num_cpte
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Solde_ouv
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Plafond
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Solde_plancher
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Caissier
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Contact
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     <th>
                                         Responsable
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
                                     </th>
                                     {#<th>
                                                                                                                                                     Created_at
@@ -94,6 +73,9 @@
                                                                                                                                                                     {{ cash_account.id }}
                                                                                                                                                                 </td>#}
                                         <td>
+                                            {{ cash_account.codeJournal}}
+                                        </td>
+                                                                                                                                                                <td>
                                             {{ cash_account.nom }}
                                         </td>
                                         <td>
