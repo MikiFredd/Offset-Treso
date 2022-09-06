@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FundsRequest{% endblock %}
+
+{% block body %}
+    <div class="row row-cards mb-3 mt-3">
+        <div class="col-12">
+            <div class="card  bg-light border rounded-3">
+                <div class="card-header mb-3 bg-facebook" style="border-bottom: 3px solid yellow;">
+                    <h2 class="page-title text-break" style="color: white">
+                        Détail FundsRequest
+                    </h2>
+                </div>
+                <!-- corps de notre vue -->
+                <div class="table-responsive">
+                    <table class="table table-vcenter card-table" style="text-align: -moz-left;">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ funds_request.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ funds_request.date ? funds_request.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant_depenses</th>
+                <td>{{ funds_request.montantDepenses }}</td>
+            </tr>
+            <tr>
+                <th>Solde_apres</th>
+                <td>{{ funds_request.soldeApres }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ funds_request.objet }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ funds_request.montant }}</td>
+            </tr>
+            <tr>
+                <th>Montant_lettres</th>
+                <td>{{ funds_request.montantLettres }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ funds_request.createdAt ? funds_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ funds_request.updatedAt ? funds_request.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <!-- Pied de page de notre vue -->
+    <div class="card-footer">
+        <a class="btn btn-warning float-end ms-2" href="{{ path('app_funds_request_edit', {'id': funds_request.id}) }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+            </svg>
+            Modifier
+                                    
+        </a>
+        <a href="{{ path('app_funds_request_index') }}" class="btn btn-azure  float-end">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+            </svg>
+            Retour
+                                    
+        </a>
+    </div>
+</div>
+</div>
+</div>
+
+    {#<a href="{{ path('app_funds_request_index') }}">back to list</a>
+
+    <a href="{{ path('app_funds_request_edit', {'id': funds_request.id}) }}">edit</a>
+
+    {{ include('funds_request/_delete_form.html.twig') }}#}
+{% endblock %}

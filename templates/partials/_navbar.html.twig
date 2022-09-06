@@ -77,20 +77,32 @@
                 OPERATIONS DE CAISSE
             </span>
         </a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="./#">
-                First
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./#">
-                Second
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./#">
-                Third
-            </a>
-        </div>
-    </li>
+                <div class="dropdown-menu">
+                    <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                        <a class="dropdown-item" href="./buttons.html">
+                            ORDRE DE MISSION
+                        </a>
+                        <div class="dropend">
+                        <a class="dropdown-item dropdown-toggle" href="#sidebar-cards" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+                            ENCAISSEMENT
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="{{path('app_funds_request_index')}}" class="float-end dropdown-item">
+                                DEMANDE DE FONDS
+                            </a>
+                            <a href="./card-actions.html" class="dropdown-item">
+                                {{"REçU DE CAISSE"|upper}}
+                            </a>
+                          </div>
+                        </div>
+                        <a class="dropdown-item" href="./colors.html">
+                          DECAISSEMENT
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
     <li class="nav-item">
         <a class="nav-link" href="./#">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
