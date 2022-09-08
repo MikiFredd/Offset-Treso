@@ -23,7 +23,7 @@ class FundsRequestType extends AbstractType
             ])
             ->add('caisse', EntityType::class, [
                 'class' => CashAccount::class,
-                'placeholder' => 'Choisissez la caisse'
+                'placeholder' => 'Choisissez la caisse' 
             ])
             ->add('montant_depenses', TextType::class)
             ->add('solde_apres', TextType::class)
