@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    CashAccount index
+    Compte caisse
 {% endblock %}
 {% block body %}
     <div class="row row-cards">
@@ -26,16 +26,16 @@
                                         Nom
                                     </th>
                                     <th>
-                                        Num_cpte
+                                        Numéro de compte
                                     </th>
                                     <th>
-                                        Solde_ouv
+                                        Solde à l'ouverture
                                     </th>
                                     <th>
                                         Plafond
                                     </th>
                                     <th>
-                                        Solde_plancher
+                                        Solde plancher
                                     </th>
                                     <th>
                                         Caissier
@@ -46,17 +46,8 @@
                                     <th>
                                         Responsable
                                     </th>
-                                    {#<th>
-                                                                                                                                                    Created_at
-                                                                                                                                                </th>
-                                                                                                                                                <th>
-                                                                                                                                                    Updated_at
-                                                                                                                                                </th>#}
                                     <th>
-                                        actions
-                                                                                                                                                            
-                                                                                                                    
-                                                                            
+                                        Actions
                                     </th>
                                 </tr>
                             </thead>
@@ -133,15 +124,9 @@
                                                             <img src="{{ asset('images/illustrations/undraw_printing_invoices_5r4r.svg') }}" height="128" alt=""></div>
                                                             <p class="empty-title">
                                                                 Aucun élément disponible                                            
-                                                                                                                                                                                                                                                        
-                                                                                                                                                                                            
-                                                                                                                            
                                                             </p>
                                                             <p class="empty-subtitle text-muted">
-                                                                Tableau vide. Essayez d'ajouter un nouvel élément.      
-                                                                                                                                                                                                                                                        
-                                                                                                                                                                                            
-                                                                                                                            
+                                                                Tableau vide. Essayez d'ajouter un nouvel élément.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -152,14 +137,13 @@
                                 </table>
                             </div>
                         </div>
-                            <div class="card-footer">
-                                <div class="mr-auto" style="float: right;">
-                                    <a class="btn btn-ghost-primary active" href="{{ path('app_cash_account_new') }}">
-                                        Nouveau
-                                    </a>
-                                </div>
+                        <div class="card-footer">
+                            <div class="mr-auto" style="float: right;">
+                                <a class="btn btn-ghost-primary active" href="{{ path('app_cash_account_new') }}">
+                                    Nouveau
+                                </a>
                             </div>
-                        
+                        </div>
                     </div>
                 </div>
             </div>

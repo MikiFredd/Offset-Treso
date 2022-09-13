@@ -37,10 +37,17 @@ class MissionOrderType extends AbstractType
                 'class' => Personne::class,
                 'placeholder' => 'Choisissez la caisse' 
             ])
+            /*->add('passager', EntityType::class, [
+                'class' => Personne::class,
+                'multiple' => true,
+                'attr' => [
+                    'class' => 'select2'
+                ]
+            ])*/
             ->add('passager', EntityType::class, [
                 'class' => Personne::class,
                 'multiple' => true,
-                'expanded' => true
+                'expanded' => true,
             ])
         ;
     }

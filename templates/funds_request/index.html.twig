@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    FundsRequest index
+    FundsRequest
 {% endblock %}
 
 {% block body %}
@@ -18,7 +18,6 @@
                         <table class="table table-vcenter card-table" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    {#<th>Id</th>#}
                                     <th>
                                         Date
                                     </th>
@@ -32,13 +31,13 @@
                                         Nom caissier
                                     </th>
                                     <th>
-                                        Plafond de caisse
+                                        Plafond
                                     </th>
                                     <th>
-                                        Montant_depenses
+                                        Montant dépensé
                                     </th>
                                     <th>
-                                        Solde_apres
+                                        Nouveau solde
                                     </th>
                                     <th>
                                         Objet
@@ -47,12 +46,10 @@
                                         Montant
                                     </th>
                                     <th>
-                                        Montant_lettres
+                                        Montant en lettres
                                     </th>
-                                    {#<th>Created_at</th>
-                                    <th>Updated_at</th>#}
                                     <th>
-                                        actions
+                                        Action
                                     </th>
                                 </tr>
                             </thead>
@@ -90,8 +87,6 @@
                                         <td>
                                             {{ funds_request.montantLettres }}
                                         </td>
-                                        {#<td>{{ funds_request.createdAt ? funds_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                                                        <td>{{ funds_request.updatedAt ? funds_request.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
                                         <td>
                                             <div>
                                                 <button class=" btn btn-ghost-cyan">

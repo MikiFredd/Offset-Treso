@@ -8,7 +8,7 @@
         <div class="card  bg-light border rounded-3">
             <div class="card-header mb-3 bg-facebook" style="border-bottom: 3px solid yellow;">
                 <h2 class="page-title text-break" style="color: white">
-                    Détail Ordre de mission
+                    Numéro Ordre de mission : {{ mission_order.numMissionOrder }}
                 </h2>
             </div>
             <!-- corps de notre vue -->
@@ -17,7 +17,7 @@
     <tbody>
             <tr>
                 <th>Date</th>
-                <td>{{ mission_order.date ? mission_order.date|date('Y-m-d') : '' }}</td>
+                <td>{{ mission_order.date ? mission_order.date|date('d/m/Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Chef</th>
@@ -32,24 +32,20 @@
                 <td>{{ mission_order.motif }}</td>
             </tr>
             <tr>
-                <th>NumVehicule</th>
+                <th>Numéro de véhicule</th>
                 <td>{{ mission_order.numVehicule }}</td>
             </tr>
             <tr>
-                <th>NomChauffeur</th>
+                <th>Chauffeur</th>
                 <td>{{ mission_order.nomChauffeur }}</td>
             </tr>
             <tr>
-                <th>DateDepart</th>
-                <td>{{ mission_order.dateDepart ? mission_order.dateDepart|date('Y-m-d') : '' }}</td>
+                <th>Date de départ</th>
+                <td>{{ mission_order.dateDepart ? mission_order.dateDepart|date('d/m/Y') : '' }}</td>
             </tr>
             <tr>
-                <th>DateRetour</th>
-                <td>{{ mission_order.dateRetour ? mission_order.dateRetour|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>NumMissionOrder</th>
-                <td>{{ mission_order.numMissionOrder }}</td>
+                <th>Date de retour</th>
+                <td>{{ mission_order.dateRetour ? mission_order.dateRetour|date('d/m/Y') : '' }}</td>
             </tr>
             <tr>
             <th>Personnes à bord</th>

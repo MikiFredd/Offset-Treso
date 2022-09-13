@@ -14,10 +14,19 @@ import './bootstrap';
 
 // loads the jquery package from node_modules
 const $ = require('jquery');
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
 
 require('bootstrap');
-require('./js/demo');
 require('./js/tabler');
 require('./js/tabler.esm');
+require('select2');
+
+
+/*$(document).ready(function() {
+    $('.select2').select2();
+});*/

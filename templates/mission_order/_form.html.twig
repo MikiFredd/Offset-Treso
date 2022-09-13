@@ -92,7 +92,8 @@
                                     {{ form_widget(form.passager) }}
                                 </div>
                             </div>
-                        </div>
+                            {#{{ form_widget(form.passager) }}#}
+                            </div>
                     </div>
                 </div>
             </div>
@@ -107,8 +108,8 @@
 <div class="card-footer mt-2">
 <button class="btn btn-blue float-end ms-2">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
-         height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none"
-         stroke-linecap="round" stroke-linejoin="round">
+        height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
         <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
@@ -117,8 +118,8 @@
 </button>
 <a href="{{ path('app_mission_order_index') }}" class="btn btn-azure  float-end">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back"
-         width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
-         fill="none" stroke-linecap="round" stroke-linejoin="round">
+        width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+        fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
     </svg>
