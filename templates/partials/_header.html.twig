@@ -81,18 +81,18 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                 aria-label="Open user menu">
-                    <span class="avatar avatar-rounded" style="background-color: #0637d6 ;">EP</span>
+                    <span class="avatar avatar-rounded" style="background-color: #0637d6 ;">{{ app.user.firstname|slice(0,1) }}{{ app.user.lastname|slice(0,1) }}</span>
                     <div class="d-none d-xl-block ps-2">
-                        <div style="color: white ;">Emmanuel MAHILE</div>
-                        <div class="mt-1 small" style="color: #fbf46a ;">Informaticien</div>
+                        <div style="color: white ;">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                        <div class="mt-1 small" style="color: #fbf46a ;">{{ app.user.fonction }}</div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="#" class="dropdown-item">Profile & compte</a>
+                    <a href="#" class="dropdown-item">Profil & compte</a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Options</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{path('app_logout')}}" class="dropdown-item">Logout</a>
+                    <a href="{{path('app_logout')}}" class="dropdown-item">Déconnexion</a>
                 </div>
             </div>
         </div>
