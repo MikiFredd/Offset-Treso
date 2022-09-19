@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TypeCompteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\TimestampableTrait;
 
@@ -23,6 +25,14 @@ class TypeCompte
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Description = null;
+
+    #[ORM\OneToMany(mappedBy: 'typeCompte', targetEntity: TreasuryAccount::class)]
+    private Collection $treasuryAccounts;
+
+    public function __construct()
+    {
+        $this->treasuryAccounts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -56,5 +66,35 @@ class TypeCompte
     public function __toString()
     {
        return $this->getIntitule();
+    }
+
+    /**
+     * @return Collection<int, TreasuryAccount>
+     */
+    public function getTreasuryAccounts(): Collection
+    {
+        return $this->treasuryAccounts;
+    }
+
+    public function addTreasuryAccount(TreasuryAccount $treasuryAccount): self
+    {
+        if (!$this->treasuryAccounts->contains($treasuryAccount)) {
+            $this->treasuryAccounts->add($treasuryAccount);
+            $treasuryAccount->setTypeCompte($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTreasuryAccount(TreasuryAccount $treasuryAccount): self
+    {
+        if ($this->treasuryAccounts->removeElement($treasuryAccount)) {
+            // set the owning side to null (unless already changed)
+            if ($treasuryAccount->getTypeCompte() === $this) {
+                $treasuryAccount->setTypeCompte(null);
+            }
+        }
+
+        return $this;
     }
 }

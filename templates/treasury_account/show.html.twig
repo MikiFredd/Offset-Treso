@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TreasuryAccount{% endblock %}
+
+{% block body %}
+    <div class="row row-cards mb-3 mt-3">
+        <div class="col-12">
+            <div class="card  bg-light border rounded-3">
+                <div class="card-header mb-3 bg-facebook" style="border-bottom: 3px solid yellow;">
+                    <h2 class="page-title text-break" style="color: white">
+                        Détail compte Trésorerie
+                    </h2>
+                </div>
+                <!-- corps de notre vue -->
+                <div class="table-responsive">
+                    <table class="table table-vcenter card-table" style="text-align: -moz-left;">
+        <tbody>
+            <tr>
+                <th>Intitulé Tiers</th>
+                <td>{{ treasury_account.Tiers }}</td>
+            </tr>
+            <tr>
+                <th>Code Tiers</th>
+                <td>{{ treasury_account.Tiers.Code }}</td>
+            </tr>
+            <tr>
+                <th>Type Tiers</th>
+                <td>{{ treasury_account.Tiers.typeTiers }}</td>
+            </tr>
+            <tr>
+                <th>Echeance_reglement</th>
+                <td>{{ treasury_account.echeanceReglement ? treasury_account.echeanceReglement|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type Compte</th>
+                <td>{{ treasury_account.typeCompte }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+                <!-- Pied de page de notre vue -->
+                <div class="card-footer">
+                    <a class="btn btn-warning float-end ms-2" href="{{ path('app_treasury_account_edit', {'id': treasury_account.id}) }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                        </svg>
+                        Modifier
+                    </a>
+                    <a href="{{ path('app_treasury_account_index') }}" class="btn btn-azure  float-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+                        </svg>
+                        Retour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

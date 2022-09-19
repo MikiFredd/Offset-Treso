@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TiersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\TimestampableTrait;
 
@@ -44,6 +46,14 @@ class Tiers
 
     #[ORM\ManyToOne(inversedBy: 'tiers')]
     private ?TypeTiers $typeTiers = null;
+
+    #[ORM\OneToMany(mappedBy: 'Tiers', targetEntity: TreasuryAccount::class)]
+    private Collection $treasuryAccounts;
+
+    public function __construct()
+    {
+        $this->treasuryAccounts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -156,5 +166,40 @@ class Tiers
         $this->typeTiers = $typeTiers;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, TreasuryAccount>
+     */
+    public function getTreasuryAccounts(): Collection
+    {
+        return $this->treasuryAccounts;
+    }
+
+    public function addTreasuryAccount(TreasuryAccount $treasuryAccount): self
+    {
+        if (!$this->treasuryAccounts->contains($treasuryAccount)) {
+            $this->treasuryAccounts->add($treasuryAccount);
+            $treasuryAccount->setTiers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTreasuryAccount(TreasuryAccount $treasuryAccount): self
+    {
+        if ($this->treasuryAccounts->removeElement($treasuryAccount)) {
+            // set the owning side to null (unless already changed)
+            if ($treasuryAccount->getTiers() === $this) {
+                $treasuryAccount->setTiers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getIntitule();
     }
 }

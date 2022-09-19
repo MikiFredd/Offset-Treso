@@ -19,51 +19,18 @@ class TreasuryAccount
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $code_tiers = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nom = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $echeance_reglement = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $intitule_tiers = null;
+    #[ORM\ManyToOne(inversedBy: 'treasuryAccounts')]
+    private ?Tiers $Tiers = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type_compte = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $types_tiers = null;
+    #[ORM\ManyToOne(inversedBy: 'treasuryAccounts')]
+    private ?TypeCompte $typeCompte = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCodeTiers(): ?string
-    {
-        return $this->code_tiers;
-    }
-
-    public function setCodeTiers(?string $code_tiers): self
-    {
-        $this->code_tiers = $code_tiers;
-
-        return $this;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
     }
 
     public function getEcheanceReglement(): ?\DateTimeInterface
@@ -78,39 +45,28 @@ class TreasuryAccount
         return $this;
     }
 
-    public function getIntituleTiers(): ?string
+    public function getTiers(): ?Tiers
     {
-        return $this->intitule_tiers;
+        return $this->Tiers;
     }
 
-    public function setIntituleTiers(?string $intitule_tiers): self
+    public function setTiers(?Tiers $Tiers): self
     {
-        $this->intitule_tiers = $intitule_tiers;
+        $this->Tiers = $Tiers;
 
         return $this;
     }
 
-    public function getTypeCompte(): ?string
+    public function getTypeCompte(): ?TypeCompte
     {
-        return $this->type_compte;
+        return $this->typeCompte;
     }
 
-    public function setTypeCompte(string $type_compte): self
+    public function setTypeCompte(?TypeCompte $typeCompte): self
     {
-        $this->type_compte = $type_compte;
+        $this->typeCompte = $typeCompte;
 
         return $this;
     }
 
-    public function getTypesTiers(): ?string
-    {
-        return $this->types_tiers;
-    }
-
-    public function setTypesTiers(?string $types_tiers): self
-    {
-        $this->types_tiers = $types_tiers;
-
-        return $this;
-    }
 }
