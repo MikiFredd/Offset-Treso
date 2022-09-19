@@ -1,0 +1,113 @@
+{# FORMULAIRE D'ENREGISTREMENT TIERS#}
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <fieldset class="form-fieldset">
+                    <legend>Identification Tiers</legend>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-12">
+                                    <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label required">
+                                    Code :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.Code) }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label required">
+                                    Intitulé :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.intitule) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label required">
+                                    Raison sociale :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.raison_sociale) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label required">
+                                    Numéro CC :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.num_cc) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label">
+                                    Téléphone :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.telephone) }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label">
+                                    Siège :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.siege) }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label">
+                                    Adresse :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.address) }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label">
+                                    Boite postale:
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.postal) }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3 mt-3">
+                                <label class="col-md-3 col-form-label required">
+                                    Type :
+                                </label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.typeTiers) }}
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+<div class="divide-x"></div>
+
+<!-- Pied de page de notre formulaire -->
+<div class="card-footer mt-2">
+    <button class="btn btn-warning float-end ms-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+        </svg>
+        {{ button_label|default('Enregistrer')}}
+    </button>
+    <a href="{{ path('app_tiers_index') }}" class="btn btn-azure  float-end">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+        </svg>
+        Retour
+    </a>
+</div>
