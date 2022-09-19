@@ -39,6 +39,12 @@ class Tiers
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $siege = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Code = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tiers')]
+    private ?TypeTiers $typeTiers = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,6 +130,30 @@ class Tiers
     public function setSiege(?string $siege): self
     {
         $this->siege = $siege;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->Code;
+    }
+
+    public function setCode(string $Code): self
+    {
+        $this->Code = $Code;
+
+        return $this;
+    }
+
+    public function getTypeTiers(): ?TypeTiers
+    {
+        return $this->typeTiers;
+    }
+
+    public function setTypeTiers(?TypeTiers $typeTiers): self
+    {
+        $this->typeTiers = $typeTiers;
 
         return $this;
     }
