@@ -25,6 +25,10 @@ require('bootstrap');
 require('./js/tabler');
 require('./js/tabler.esm');
 require('select2');
+require('./flashy');
+
+
+window.flashy = flashy;
 
 
 /*$(document).ready(function() {
